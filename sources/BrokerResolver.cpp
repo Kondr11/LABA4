@@ -39,13 +39,14 @@ void BrokerResolver::saveFileIfCorrect(const boost::filesystem::path &path)
 
 void BrokerResolver::resolve(const boost::filesystem::path &path)
 {
-    for (const boost::filesystem::directory_entry &entry : boost::filesystem::directory_iterator{path}) {
+    for (const boost::filesystem::directory_entry &entry :
+ boost::filesystem::directory_iterator{path}) {
         boost::filesystem::path resolved =
 boost::filesystem::canonical(entry);
 
         if (boost::filesystem::is_directory(resolved)) {
             currentDirectories.push_back(
-                    boost::filesystem::path{entry}.stem().string());          // save origin name
+                    boost::filesystem::path{entry}.stem().string());
             resolve(resolved);
         } else if (boost::filesystem::is_regular_file(resolved)) {
             saveFileIfCorrect(entry);
