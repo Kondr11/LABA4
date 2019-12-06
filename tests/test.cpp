@@ -1,3 +1,4 @@
+// Copyright 2019 <Kondr11>
 #include <gtest/gtest.h>
 #include "BrokerResolver.h"
 
@@ -193,7 +194,7 @@ auto iterator = data.find({"dir", 1234});
 ASSERT_NE(iterator, data.cend());
 
 EXPECT_EQ(iterator->second.files, 3);
-EXPECT_EQ(iterator->second.lastDate,"20181010");
+EXPECT_EQ(iterator->second.lastDate, "20181010");
 }
 
 TEST_F(BrokerResolverFixture, DataCollectionNested)
@@ -202,7 +203,7 @@ auto iterator = data.find({"dir nested_dir", 1234});
 ASSERT_NE(iterator, data.cend());
 
 EXPECT_EQ(iterator->second.files, 1);
-EXPECT_EQ(iterator->second.lastDate,"20181005");
+EXPECT_EQ(iterator->second.lastDate, "20181005");
 }
 
 TEST_F(BrokerResolverFixture, DataCollectionSymlink)
@@ -211,7 +212,7 @@ auto iterator = data.find({"new_dir", 1234});
 ASSERT_NE(iterator, data.cend());
 
 EXPECT_EQ(iterator->second.files, 3);
-EXPECT_EQ(iterator->second.lastDate,"20181010");
+EXPECT_EQ(iterator->second.lastDate, "20181010");
 }
 
 TEST_F(BrokerResolverFixture, DataCollectionWrongExtension)

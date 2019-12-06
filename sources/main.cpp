@@ -1,3 +1,4 @@
+// Copyright 2019 <Kondr11>
 #include <iostream>
 
 #include "BrokerResolver.h"
@@ -13,12 +14,13 @@ int main(int argc, char *argv[])
     resolver.resolve(path);
 
     std::cout << "FILES: \n";
-    for (const BrokerFile &file: resolver.getFileCollection()) {
-        std::cout << file.directoriesToString() << " " << file.filename << std::endl;
+    for (const BrokerFile &file : resolver.getFileCollection()) {
+        std::cout << file.directoriesToString() << " " <<
+        file.filename << std::endl;
     }
 
     std::cout << "\nDATA: \n";
-    for (const auto &pair: resolver.getDataCollection()) {
+    for (const auto &pair : resolver.getDataCollection()) {
         std::cout << "broker:" << pair.first.broker
                   << " account:" << pair.first.account
                   << " files:" << pair.second.files
@@ -27,4 +29,5 @@ int main(int argc, char *argv[])
     }
 
     return 0;
+
 }
